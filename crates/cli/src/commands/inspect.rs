@@ -6,7 +6,12 @@ use prism_core::types::config::NetworkConfig;
 #[derive(Args)]
 pub struct InspectArgs {
     /// Transaction hash to inspect.
+    #[arg(value_name = "TX_HASH")]
     pub tx_hash: String,
+
+    /// Show detailed fee breakdown including bid vs charged values.
+    #[arg(long)]
+    pub fee_stats: bool,
 }
 
 pub async fn run(
